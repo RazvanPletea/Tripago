@@ -1,0 +1,139 @@
+ul {
+  margin: 0 auto;
+}
+.manga-filler {
+  display: flex;
+  gap: 8px;
+}
+.manga-cannon {
+  display: block;
+  font-size: 16px;
+  color: rgba(0, 255, 0, 0.884);
+  padding: 4px 16px;
+  background-color: #333;
+  border-radius: 4px;
+  text-align: center;
+  background-color: rgba(18, 150, 18, 0.401);
+  /* width: 80px; */
+}
+
+.filler {
+  color: red;
+  background-color: #ff3c0056;
+}
+
+.episode-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  background-color: #111;
+  margin: 24px auto;
+  padding: 12px;
+  min-width: 350px;
+}
+
+li img {
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+
+.episode-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background-color: #f76707d0;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  max-width: 120px;
+}
+
+.episode-title {
+  padding: 8px;
+}
+
+h3 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* loading screee */
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh; /* Adjust as needed */
+}
+
+.loader {
+  position: relative;
+  width: 100px;
+  height: 16px;
+  align-items: center;
+  align-self: center;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 32px 0 #fff;
+  left: 0;
+  top: 0;
+  animation: ballMoveX 2s linear infinite;
+}
+.loader:after {
+  box-shadow: none;
+  transform: translateX(64px) scale(1);
+  z-index: 2;
+  animation: none;
+  animation: trfLoader 2s linear infinite;
+}
+
+@keyframes trfLoader {
+  0%,
+  5% {
+    transform: translateX(64px) scale(1);
+    background: #fff;
+  }
+  10% {
+    transform: translateX(64px) scale(1);
+    background: #ff3d00;
+  }
+  40% {
+    transform: translateX(32px) scale(1.5);
+    background: #ff3d00;
+  }
+  90%,
+  95% {
+    transform: translateX(0px) scale(1);
+    background: #ff3d00;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    background: #fff;
+  }
+}
+@keyframes ballMoveX {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  90%,
+  100% {
+    transform: translateX(32px);
+  }
+}
