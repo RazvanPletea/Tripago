@@ -1,0 +1,15 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: start; */
+  margin-left: 50px;
+  height: 20vh;
+}
+
+.animated-typing {
+  font-size: 48px;
+  background: linear-gradient(45deg, var(--orange-500), var(--orange-100));
+  background-clip: text;
+  color: transparent;
+  font-weight: 500;
+}
