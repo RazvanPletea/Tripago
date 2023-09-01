@@ -1,0 +1,11 @@
+.legend-item {
+}
+
+.legend-container {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 1fr 2fr;
+}
+
+.filer {
+}
