@@ -1,11 +1,42 @@
-.legend-item {
-}
-
 .legend-container {
+  max-width: 99%;
+  height: 30vh;
   display: grid;
-  margin: 0 auto;
-  grid-template-columns: 1fr 2fr;
+  gap: 36px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  grid-template-columns: 1fr 3fr;
+  margin-bottom: 1050px;
 }
 
-.filer {
+.legend-item {
+  display: block;
+  text-align: center;
+  background-color: var(--zinc-900);
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+}
+
+.filter {
+  text-align: center;
+  border-radius: 10px;
+}
+
+.manga,
+.filter {
+  text-align: center;
+  background-color: var(--green-800);
+  color: var(--green-500);
+  padding: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .legend-container {
+    grid-template-columns: 1fr; /* Switch to a single column layout */
+    margin-bottom: 0; /* Remove the large margin */
+  }
 }
