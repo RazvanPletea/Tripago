@@ -13,3 +13,25 @@
   color: transparent;
   font-weight: 700;
 }
+
+@media screen and (max-width: 768px) {
+  .animated-typing {
+    font-size: 24px; /* Adjust the font size as needed for smaller screens */
+  }
+}
+
+.parallax-container {
+  height: 100vh;
+}
+
+/* smoke effect */
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
