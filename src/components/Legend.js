@@ -1,12 +1,29 @@
 import "./legend.css";
 import "../colors.css";
+import { useState, useEffect } from "react";
 export default function Legend() {
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    const delayTimer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 4000);
+
+    return () => {
+      clearTimeout(delayTimer);
+    };
+  }, []);
+
   return (
     <div className="legend-container">
       <div className="filter manga">
         <span>MANGA-CANNON</span>
       </div>
-      <div className="legend-item">
+      <div
+        className={`legend-item ${
+          animationComplete ? "slide-in-from-left" : "hidden"
+        }`}
+      >
         <span>
           Manga-canon: When an anime adaptation is referred to as "manga-canon,"
           it means that the episodes closely follow the storyline, characters,
@@ -16,7 +33,11 @@ export default function Legend() {
       <div className="filter">
         <span>Mixed-Manga-canon</span>
       </div>
-      <div className="legend-item">
+      <div
+        className={`legend-item ${
+          animationComplete ? "slide-in-from-left" : "hidden"
+        }`}
+      >
         <span>
           {" "}
           In some anime adaptations, you may find a combination of manga-canon
@@ -29,7 +50,11 @@ export default function Legend() {
       <div className="filter">
         <span>FILLER</span>
       </div>
-      <div className="legend-item">
+      <div
+        className={`legend-item ${
+          animationComplete ? "slide-in-from-left" : "hidden"
+        }`}
+      >
         <span>
           Filler: Filler episodes or arcs are episodes in an anime that are not
           based on the original manga source material. These episodes are

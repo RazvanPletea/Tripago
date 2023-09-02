@@ -17,7 +17,7 @@
   background-color: var(--zinc-900);
   padding: 20px;
   border-radius: 20px;
-  opacity: 0;
+  transition: opacity 0.3s ease-in;
 }
 
 .filter {
@@ -39,4 +39,22 @@
     grid-template-columns: 1fr; /* Switch to a single column layout */
     margin-bottom: 0; /* Remove the large margin */
   }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-from-left {
+  animation: slideInFromLeft 0.5s ease;
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
 }
