@@ -25,9 +25,9 @@ export default function Legend() {
         }`}
       >
         <span>
-          Manga-canon: When an anime adaptation is referred to as "manga-canon,"
-          it means that the episodes closely follow the storyline, characters,
-          and events as depicted in the original manga. I
+          Manga Canon Episodes: They faithfully follow the manga's main story,
+          maintaining key events, character growth, and the original plot's
+          integrity.
         </span>
       </div>
       <div className="filter">
@@ -40,10 +40,9 @@ export default function Legend() {
       >
         <span>
           {" "}
-          In some anime adaptations, you may find a combination of manga-canon
-          and filler episodes. This is referred to as "mixed-manga-canon." In
-          such cases, the anime follows the main story arcs faithfully but also
-          includes filler episodes or arcs in between
+          These episodes blend elements from the manga with anime-original
+          content, expanding the story while maintaining the core storyline's
+          integrity.
         </span>
       </div>
 
@@ -56,10 +55,9 @@ export default function Legend() {
         }`}
       >
         <span>
-          Filler: Filler episodes or arcs are episodes in an anime that are not
-          based on the original manga source material. These episodes are
-          created by the anime studio to extend the series or to give the manga
-          time to get ahead of the anime.
+          These episodes stray from the manga's main story, often featuring
+          unrelated or less engaging plots that may not resonate with fans of
+          the original narrative.
         </span>
       </div>
     </div>

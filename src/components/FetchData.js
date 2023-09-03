@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { cannon, mixed, filler } from "./EpisodeTags";
 import "./fetchData.css";
 import "../colors.css";
+
 export default function FetchData() {
   const id = 1555;
   const [loading, setLoading] = useState("true");
@@ -16,7 +18,6 @@ export default function FetchData() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      console.log(data);
 
       setCurrentPageUrl(data.links.next);
       setList((prevList) => [...prevList, ...data.data]);
@@ -34,7 +35,16 @@ export default function FetchData() {
     fetchEpisodes(currentPageUrl);
   }, [currentPageUrl]);
 
-  console.log(list);
+  const getEpisodesType = (episodeNumber) => {
+    if (cannon.includes(episodeNumber)) {
+      return "cannon";
+    } else if (mixed.includes(episodeNumber)) {
+      return " mixed";
+    } else if (filler.includes(episodeNumber)) {
+      return "filler";
+    }
+    return "";
+  };
 
   return (
     <div className="episode-container">
@@ -48,15 +58,18 @@ export default function FetchData() {
             <li key={`${item.id}`}>
               <img src={"/assets/tiny.jpg"} />
               <h3>
-                <span className="episode-number">
-                  Episode {item.attributes.number}
-                </span>
+                <div className="episode-tag">
+                  <span className="episode-number">
+                    Episode {item.attributes.number}
+                  </span>
+
+                  <span className={getEpisodesType(item.attributes.number)}>
+                    {getEpisodesType(item.attributes.number)}
+                  </span>
+                </div>
                 <span className="episode-title">
                   {item.attributes.titles.en_us}
                 </span>
-                <div className="manga-filler">
-                  <span className="manga-cannon"> filler</span>
-                </div>
               </h3>
             </li>
           ))}
