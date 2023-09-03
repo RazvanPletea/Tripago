@@ -60,7 +60,7 @@ export default function FetchData() {
               <h3>
                 <div className="episode-tag">
                   <span className="episode-number">
-                    Episode {item.attributes.number}
+                    Ep {item.attributes.number}
                   </span>
 
                   <span className={getEpisodesType(item.attributes.number)}>

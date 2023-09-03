@@ -1,5 +1,6 @@
 ul {
   margin: 0 auto;
+  padding: 0;
 }
 
 .episode-tag {
@@ -43,6 +44,7 @@ li img {
 }
 
 .episode-title {
+  font-weight: 500;
   padding: 8px;
 }
 

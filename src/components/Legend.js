@@ -17,7 +17,7 @@ export default function Legend() {
   return (
     <div className="legend-container">
       <div className="filter manga">
-        <span>MANGA-CANNON</span>
+        <span>CANNON</span>
       </div>
       <div
         className={`legend-item ${
@@ -30,8 +30,8 @@ export default function Legend() {
           integrity.
         </span>
       </div>
-      <div className="filter">
-        <span>Mixed-Manga-canon</span>
+      <div className="filter mixed-legend">
+        <span>MIXED</span>
       </div>
       <div
         className={`legend-item ${
@@ -46,7 +46,7 @@ export default function Legend() {
         </span>
       </div>
 
-      <div className="filter">
+      <div className="filter filler-legend">
         <span>FILLER</span>
       </div>
       <div
