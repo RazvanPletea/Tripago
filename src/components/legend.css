@@ -1,31 +1,33 @@
 .legend-container {
-  max-width: 99%;
-  /* height: 30vh; */
   display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
-  /* justify-content: center; */
-  /* align-items: center; */
-  margin-left: 20px;
-  margin-right: 20px;
-  margin: 0 20px 30px 20px;
-  grid-template-columns: 1fr 3fr;
+
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 800px;
+  justify-content: center; /* Center items horizontally */
+  align-content: center;
+}
+
+@media (max-width: 1300px) {
+  .legend-container {
+    margin: 0 20px 30px 20px; /* Apply the desired margin */
+  }
 }
 
 .legend-item {
-  display: block;
   text-align: center;
   background-color: var(--zinc-900);
   padding: 20px;
   border-radius: 20px;
-  transition: opacity 0.3s ease-in;
   font-weight: 500;
   font-size: 16px;
-  max-width: 1300px;
+  opacity: 0;
+  transition: 0.5s ease-in;
 }
 
-.filter {
-  text-align: center;
-  border-radius: 10px;
+.visible {
+  opacity: 1;
 }
 
 /* manga filler and mixed styles */
@@ -35,6 +37,7 @@
   color: var(--green-500);
   padding: 25px;
   font-weight: 700;
+  border-radius: 15px;
 }
 
 .mixed-legend {
@@ -43,6 +46,7 @@
   color: var(--green-600);
   padding: 25px;
   font-weight: 700;
+  border-radius: 15px;
 }
 
 .filler-legend {
@@ -51,31 +55,7 @@
   color: var(--red-500);
   padding: 25px;
   font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .legend-container {
-    grid-template-columns: 1fr; /* Switch to a single column layout */
-    margin-bottom: 0; /* Remove the large margin */
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(200%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.slide-in-from-left {
-  animation: slideInFromLeft 0.5s ease;
-  opacity: 1;
-}
-
-.hidden {
-  opacity: 0;
+  border-radius: 15px;
 }
 
 /* intro section */
@@ -115,5 +95,46 @@
 
 .description-image {
   height: 20vh;
-  /* border-radius: 20px; */
+}
+
+/* querry for the description section */
+
+/* For tablets */
+@media (max-width: 1024px) {
+  .website-description {
+    flex-direction: column; /* Stack items vertically on tablets */
+    text-align: center; /* Center text content */
+  }
+
+  .welcome {
+    font-size: 48px; /* Reduce font size for the welcome text on tablets */
+    text-align: center; /* Center text */
+  }
+
+  .website-description p {
+    font-size: 16px; /* Reduce font size for paragraphs on tablets */
+    text-align: left; /* Center text */
+  }
+
+  .description-image {
+    width: 30vh;
+  }
+}
+
+/* For phones */
+@media (max-width: 767px) {
+  .welcome {
+    font-size: 36px; /* Reduce font size for the welcome text on phones */
+  }
+
+  .website-description p {
+    padding-left: 20px;
+    font-size: 14px; /* Reduce font size for paragraphs on phones */
+  }
+
+  .description-image {
+    height: 20vh;
+    margin-bottom: 200px;
+    margin-top: 130px;
+  }
 }
