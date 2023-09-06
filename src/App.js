@@ -1,7 +1,10 @@
+import { react } from "react";
+
 import "./App.css";
 import FetchData from "./components/FetchData";
 import Header from "./components/Header";
 import Legend from "./components/Legend";
+import SearchBox from "./components/SearchBox";
 
 function App() {
   return (
@@ -9,6 +12,7 @@ function App() {
       <Header />
       <Legend />
       <FetchData />
+      <SearchBox />
     </div>
   );
 }

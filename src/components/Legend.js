@@ -38,6 +38,7 @@ export default function Legend() {
           alt="Sharringan"
         />
       </div>
+      {/* legend explaining the meaning of the filler/magna */}
       <div className="legend-container">
         <div className="filter manga" onClick={() => toggleCategory("manga")}>
           <span>CANNON</span>

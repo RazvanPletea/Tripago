@@ -2,16 +2,15 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-
-  margin: 0 auto; /* Center the container horizontally */
+  margin: 0 auto;
   max-width: 800px;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center;
   align-content: center;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .legend-container {
-    margin: 0 20px 30px 20px; /* Apply the desired margin */
+    margin: 0 20px 30px 20px;
   }
 }
 
@@ -23,7 +22,7 @@
   font-weight: 500;
   font-size: 16px;
   opacity: 0;
-  transition: 0.5s ease-in;
+  transition: all 0.5s ease;
 }
 
 .visible {
