@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { cannon, mixed, filler } from "./EpisodeTags";
 import "./fetchData.css";
 import "../colors.css";
+import { useSearchContext } from "../context/Context";
 
 export default function FetchData() {
   const id = 1555;
-  const [loading, setLoading] = useState("true");
+  const [loading, setLoading] = useState(true);
   const [list, setList] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(
     `https://kitsu.io/api/edge/anime/${id}/episodes`
@@ -46,6 +47,17 @@ export default function FetchData() {
     return "";
   };
 
+  // searchbox
+
+  const { filterValue } = useSearchContext();
+  const filteredList = list.filter((item) => {
+    const episodeNumber = item.attributes.number.toString();
+    return (
+      episodeNumber.includes(filterValue) ||
+      parseInt(episodeNumber) >= parseInt(filterValue)
+    );
+  });
+
   return (
     <div className="episode-container">
       {loading ? (
@@ -54,7 +66,7 @@ export default function FetchData() {
         </div>
       ) : (
         <ul>
-          {list.map((item) => (
+          {filteredList.map((item) => (
             <li key={`${item.id}`}>
               <img src={"/assets/tiny.jpg"} />
               <h3>

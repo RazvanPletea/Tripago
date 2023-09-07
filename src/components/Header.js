@@ -126,9 +126,6 @@ export default function Header() {
             1000,
             "Filler and manga-cannon",
             2000,
-            () => {
-              console.log("Sequence completed");
-            },
           ]}
           wrapper="span"
           cursor={true}
