@@ -24,20 +24,7 @@ li {
   background-color: var(--zinc-950);
   margin: 24px auto;
   padding: 12px;
-  min-width: 1070px;
-}
-
-@media screen and (max-width: 1024px) {
-  li {
-    min-width: 600px;
-  }
-}
-
-/* Phone view: Minimum width 350px */
-@media screen and (max-width: 599px) {
-  li {
-    min-width: 350px;
-  }
+  min-width: 350px;
 }
 
 li img {
