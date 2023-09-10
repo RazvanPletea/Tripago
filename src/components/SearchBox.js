@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./searchBox.css";
-import { useSearchContext } from "../context/Context";
 
-export default function SearchBox() {
-  const { filterValue, setFilterValue } = useSearchContext();
-
+export default function SearchBox({ userSearch, setUserSearch }) {
   const handleInputChange = (e) => {
-    setFilterValue(e.target.value);
+    const numeric = e.target.value.replace(/\D/g, "");
+    setUserSearch(numeric);
   };
 
   return (
@@ -16,7 +14,7 @@ export default function SearchBox() {
           type="text"
           className="search-input"
           placeholder="search episode"
-          value={filterValue}
+          value={userSearch}
           onChange={handleInputChange}
         ></input>
       </form>
