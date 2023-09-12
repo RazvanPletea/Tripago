@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./searchBox.css";
+import { FaSearch } from "react-icons/fa";
 
 export default function SearchBox({ userSearch, setUserSearch }) {
   const handleInputChange = (e) => {
@@ -17,6 +18,10 @@ export default function SearchBox({ userSearch, setUserSearch }) {
           value={userSearch}
           onChange={handleInputChange}
         ></input>
+        <div className="icon">
+          {" "}
+          <FaSearch />
+        </div>
       </form>
     </div>
   );

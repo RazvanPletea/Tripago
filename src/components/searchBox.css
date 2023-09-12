@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin-top: 100px;
 }
 
@@ -10,7 +11,6 @@
   padding: 20px;
   background-color: black;
   border: none;
-  border: 1px solid rgba(255, 255, 255, 0.576);
   border-radius: 5px;
   text-align: center;
 }
@@ -23,4 +23,18 @@ input[type="text"]::placeholder {
 
 input[type="text"]:focus {
   outline: none;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid rgba(255, 255, 255, 0.576);
+}
+
+.icon {
+  padding: 15px;
+  height: 18px;
+  width: 24px;
+  color: rgba(255, 255, 255, 0.576);
 }
