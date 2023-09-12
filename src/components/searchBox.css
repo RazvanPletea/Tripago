@@ -10,14 +10,15 @@
   padding: 20px;
   background-color: black;
   border: none;
-  border-bottom: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.576);
+  border-radius: 5px;
   text-align: center;
 }
 
 input[type="text"]::placeholder {
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.893);
+  color: rgba(255, 255, 255, 0.576);
 }
 
 input[type="text"]:focus {

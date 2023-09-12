@@ -9,6 +9,7 @@ export default function EpisodeInfo() {
     `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=20`
   );
   const [userSearch, setUserSearch] = useState("");
+  const [timer, setTimer] = useState(null);
 
   // Fetch episodes function
   const fetchEpisodes = async (url) => {
@@ -40,12 +41,20 @@ export default function EpisodeInfo() {
   // fetch the episodes when user searches
 
   useEffect(() => {
-    setList([]);
     setLoading(true);
+    setList([]);
 
     const searchUrl = `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearch}`;
 
-    fetchEpisodes(searchUrl);
+    // fetchEpisodes(searchUrl);
+
+    clearTimeout(timer);
+
+    const newTimer = setTimeout(() => {
+      fetchEpisodes(searchUrl);
+    }, 500);
+
+    setTimer(newTimer);
   }, [userSearch]);
 
   return (
