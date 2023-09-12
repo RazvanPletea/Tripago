@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { IconBase } from "react-icons/lib";
+import React from "react";
+// import { IconBase } from "react-icons/lib";
 
 import "./App.css";
 import Header from "./components/Header";
