@@ -30,6 +30,7 @@ li {
 
 li img {
   object-fit: cover;
+  object-position: bottom;
   aspect-ratio: 1;
   border-radius: 10px;
 }

@@ -32,7 +32,7 @@ export default function EpiosodeList({ loading, list }) {
               <h3>
                 <div className="episode-tag">
                   <span className="episode-number">
-                    EP{item.attributes.number}
+                    EP {item.attributes.number}
                   </span>
                   <span className={getEpisodesType(item.attributes.number)}>
                     {getEpisodesType(item.attributes.number)}

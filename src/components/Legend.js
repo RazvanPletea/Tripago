@@ -2,6 +2,7 @@ import "./legend.css";
 import "../colors.css";
 import { useState } from "react";
 import sharringanImage from "../images/uchiha-sharingan.gif";
+import { FaArrowDown } from "react-icons/fa";
 
 export default function Legend() {
   const [expandedCategory, setExpandedCategory] = useState(null);
@@ -42,6 +43,10 @@ export default function Legend() {
       <div className="legend-container">
         <div className="filter manga" onClick={() => toggleCategory("manga")}>
           <span>CANNON</span>
+          <div className="icon">
+            {" "}
+            <FaArrowDown />
+          </div>
         </div>
         {expandedCategory === "manga" && (
           <div className="legend-item visible">
@@ -58,6 +63,10 @@ export default function Legend() {
           onClick={() => toggleCategory("mixed")}
         >
           <span>MIXED</span>
+          <div className="icon">
+            {" "}
+            <FaArrowDown />
+          </div>
         </div>
         {expandedCategory === "mixed" && (
           <div className="legend-item visible">
@@ -74,6 +83,10 @@ export default function Legend() {
           onClick={() => toggleCategory("filler")}
         >
           <span>FILLER</span>
+          <div className="icon">
+            {" "}
+            <FaArrowDown />
+          </div>
         </div>
         {expandedCategory === "filler" && (
           <div className="legend-item visible">

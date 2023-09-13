@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EpisodeList from "./EpisodesList";
 import SearchBox from "./SearchBox";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function EpisodeInfo() {
   const [loading, setLoading] = useState(true);
@@ -34,9 +35,9 @@ export default function EpisodeInfo() {
   };
 
   // Fetch episodes when the component mounts
-  useEffect(() => {
-    fetchEpisodes(currentPageUrl);
-  }, [currentPageUrl]);
+  // useEffect(() => {
+  //   fetchEpisodes(currentPageUrl);
+  // }, [currentPageUrl]);
 
   // fetch the episodes when user searches
 
@@ -45,8 +46,6 @@ export default function EpisodeInfo() {
     setList([]);
 
     const searchUrl = `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearch}`;
-
-    // fetchEpisodes(searchUrl);
 
     clearTimeout(timer);
 
@@ -58,13 +57,22 @@ export default function EpisodeInfo() {
   }, [userSearch]);
 
   return (
-    <div>
-      <SearchBox
-        setCurrentPageUrl={setCurrentPageUrl}
-        userSearch={userSearch}
-        setUserSearch={setUserSearch}
-      />
-      <EpisodeList loading={loading} list={list} />
-    </div>
+    <InfiniteScroll
+      dataLength={list.length} //This is important field to render the next data
+      next={() => {
+        fetchEpisodes(currentPageUrl);
+      }}
+      hasMore={true}
+      loader={loading}
+    >
+      <div>
+        <SearchBox
+          setCurrentPageUrl={setCurrentPageUrl}
+          userSearch={userSearch}
+          setUserSearch={setUserSearch}
+        />
+        <EpisodeList loading={loading} list={list} />
+      </div>
+    </InfiniteScroll>
   );
 }

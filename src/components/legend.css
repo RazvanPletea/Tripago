@@ -3,7 +3,6 @@
   grid-template-columns: 1fr;
   gap: 24px;
   margin: 0 auto;
-  max-width: 800px;
   justify-content: center;
   align-content: center;
 }
@@ -16,13 +15,13 @@
 
 .legend-item {
   text-align: center;
-  background-color: var(--zinc-900);
   padding: 20px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   font-weight: 500;
   font-size: 16px;
   opacity: 0;
   transition: all 0.5s ease;
+  text-align: start;
 }
 
 .visible {
@@ -31,28 +30,41 @@
 
 /* manga filler and mixed styles */
 .manga {
-  text-align: center;
-  background-color: var(--green-950);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: var(--green-500);
-  padding: 25px;
   font-weight: 700;
   border-radius: 15px;
+  border-bottom: 1px solid var(--green-900);
+}
+
+span {
+  margin: 20px;
+}
+
+.about {
+  display: none;
 }
 
 .mixed-legend {
-  text-align: center;
-  background-color: var(--green-950);
-  color: var(--green-600);
-  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--blue-500);
+  border-bottom: 1px solid var(--blue-900);
   font-weight: 700;
   border-radius: 15px;
 }
 
 .filler-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
   text-align: center;
-  background-color: var(--red-950);
   color: var(--red-500);
-  padding: 25px;
+  border-bottom: 1px solid var(--red-900);
   font-weight: 700;
   border-radius: 15px;
 }
