@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import EpisodeList from "./EpisodesList";
 import SearchBox from "./SearchBox";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -10,7 +10,8 @@ export default function EpisodeInfo() {
     `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=20`
   );
   const [userSearch, setUserSearch] = useState("");
-  const [timer, setTimer] = useState(null);
+  // const [timer, setTimer] = useState(null);
+  const timerRef = useRef(null);
 
   // Fetch episodes function
   const fetchEpisodes = async (url) => {
@@ -34,45 +35,40 @@ export default function EpisodeInfo() {
     }
   };
 
-  // Fetch episodes when the component mounts
-  // useEffect(() => {
-  //   fetchEpisodes(currentPageUrl);
-  // }, [currentPageUrl]);
-
-  // fetch the episodes when user searches
-
   useEffect(() => {
     setLoading(true);
     setList([]);
 
     const searchUrl = `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearch}`;
 
-    clearTimeout(timer);
+    clearTimeout(timerRef.current);
 
     const newTimer = setTimeout(() => {
       fetchEpisodes(searchUrl);
     }, 500);
 
-    setTimer(newTimer);
-  }, [userSearch]);
+    timerRef.current = newTimer;
+  }, [userSearch, timerRef]);
 
   return (
-    <InfiniteScroll
-      dataLength={list.length} //This is important field to render the next data
-      next={() => {
-        fetchEpisodes(currentPageUrl);
-      }}
-      hasMore={true}
-      loader={loading}
-    >
-      <div>
-        <SearchBox
-          setCurrentPageUrl={setCurrentPageUrl}
-          userSearch={userSearch}
-          setUserSearch={setUserSearch}
-        />
+    <div>
+      <SearchBox
+        setCurrentPageUrl={setCurrentPageUrl}
+        userSearch={userSearch}
+        setUserSearch={setUserSearch}
+      />
+      <InfiniteScroll
+        dataLength={list.length}
+        next={() => {
+          if (list.length < 500) {
+            fetchEpisodes(currentPageUrl);
+          }
+        }}
+        hasMore={!loading && userSearch === ""}
+        loader={""}
+      >
         <EpisodeList loading={loading} list={list} />
-      </div>
-    </InfiniteScroll>
+      </InfiniteScroll>
+    </div>
   );
 }
