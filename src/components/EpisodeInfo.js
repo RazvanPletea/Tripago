@@ -56,22 +56,11 @@ export default function EpisodeInfo() {
 
   return (
     <div>
-      <InfiniteScroll
-        dataLength={list.length}
-        next={() => {
-          if (list.length < 500) {
-            fetchEpisodes(searchUrl);
-          }
-        }}
-        hasMore={!loading && userSearch === ""}
-        loader={""}
-      >
-        <SearchBox
-          setCurrentPageUrl={setCurrentPageUrl}
-          userSearch={userSearch}
-          setUserSearch={setUserSearch}
-        />
-      </InfiniteScroll>
+      <SearchBox
+        setCurrentPageUrl={setCurrentPageUrl}
+        userSearch={userSearch}
+        setUserSearch={setUserSearch}
+      />
       <InfiniteScroll
         dataLength={list.length}
         next={() => {
