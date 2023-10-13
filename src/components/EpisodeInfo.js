@@ -34,34 +34,44 @@ export default function EpisodeInfo() {
     }
   };
 
+  const searchUrl = `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearch}`;
+
   useEffect(() => {
     setLoading(true);
     setList([]);
 
-    const searchUrl = `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearch}`;
-
     clearTimeout(timerRef.current);
 
     const newTimer = setTimeout(() => {
-      fetchEpisodes(searchUrl);
       let userSearchNumber = parseInt(userSearch);
-      for (let i = 0; i < 2; i++) {
-        userSearchNumber += 1;
-        fetchEpisodes(
-          `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=10&filter[number]=${userSearchNumber}`
-        );
-      }
+      const pageOffset = userSearchNumber;
+      fetchEpisodes(
+        `https://kitsu.io/api/edge/anime/1555/episodes?page[limit]=20&page[offset]=${pageOffset}`
+      );
+      fetchEpisodes(searchUrl);
     }, 500);
     timerRef.current = newTimer;
+    // eslint-disable-next-line
   }, [userSearch, timerRef]);
 
   return (
     <div>
-      <SearchBox
-        setCurrentPageUrl={setCurrentPageUrl}
-        userSearch={userSearch}
-        setUserSearch={setUserSearch}
-      />
+      <InfiniteScroll
+        dataLength={list.length}
+        next={() => {
+          if (list.length < 500) {
+            fetchEpisodes(searchUrl);
+          }
+        }}
+        hasMore={!loading && userSearch === ""}
+        loader={""}
+      >
+        <SearchBox
+          setCurrentPageUrl={setCurrentPageUrl}
+          userSearch={userSearch}
+          setUserSearch={setUserSearch}
+        />
+      </InfiniteScroll>
       <InfiniteScroll
         dataLength={list.length}
         next={() => {
